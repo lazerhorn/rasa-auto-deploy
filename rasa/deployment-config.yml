@@ -1,0 +1,6 @@
+# jupyter configuration
+jup_deployment_file: "deployment-fol/jupyter_deployment.yaml"
+jup_deployment_name: "jupyter-notebook"
+jup_service_name: "jupyter-service"
+jup_namespace: "default"
+jup_container_port: 8888
