@@ -2,6 +2,37 @@
 
 This application is a chatbot that automates the deployment of applications. Currently, it only supports Jupyter Notebook with Kubernetes, but it is designed to be extended for other applications in the future.
 
+![Alt text](https://github.com/lazerhorn/rasa-auto-deploy/blob/b444412e0159c74d0ee9e6f04a4dfc3933c721c8/UI_rasa.png)
+
+---
+
+## Project Workflow
+
+The flow of the system is as follows:
+
+![Alt text](https://github.com/lazerhorn/rasa-auto-deploy/blob/b444412e0159c74d0ee9e6f04a4dfc3933c721c8/FlowChart_rasa.png)
+
+1. **Client Interaction**:  
+   The client sends a user input (e.g., a deployment request) through the chatbot interface.
+
+2. **JavaScript Processing**:  
+   The client-side JavaScript captures the user input and forwards it to the Flask server.
+
+3. **Flask Server**:  
+   The Flask server acts as an intermediary, receiving the input from JavaScript and passing it on to the Rasa server.
+
+4. **Rasa Server**:  
+   The Rasa server processes the user input using its trained model to generate an appropriate response.  
+   - If a custom action is required, the Rasa server forwards the request to the Rasa Action Server.
+
+5. **Rasa Action Server**:  
+   The Rasa Action Server executes predefined custom actions. For example, it can deploy a Jupyter Notebook on Kubernetes.
+
+6. **Response Delivery**:  
+   Once the response is generated, it is sent back through the chain:  
+   **Rasa Action Server → Rasa Server → Flask Server → JavaScript → Client**.
+
+---
 
 ## Prerequisites
 
